@@ -11,7 +11,7 @@ It features:
 * error detection with CRC
 * frames of variable size
 
-However, it has not:
+However, it does not provide:
 
 * media access control, multiplexing (designed for physical layer like RS232)
 * addressing, switching (peer-to-peer only)

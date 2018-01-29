@@ -1,0 +1,15 @@
+*.o
+*.swp
+
+.nfs*
+*/.nfs*
+
+*~
+*.swo
+
+*.a43
+*.elf
+*.lst
+examples/echo/posix/echo
+examples/stream/posix/stream
+

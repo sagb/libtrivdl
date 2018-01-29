@@ -34,7 +34,8 @@ the two byte sequence 0xBABA is sent instead.
 I.e., wire transfer includes extra 0xBA (but note that frame 
 in RAM, i.e. `struct t_frame`, does not).
 
-*Caveat*: first byte of message (called 'opcode' in examples) can't be 0xBA.
+*Caveat*: first byte of message (called 'opcode' in examples) can't be 0xBA,
+and total frame size can't be 0xBB (187).
 
 Each frame begins with a delimiter, then a single byte, representing the index 
 of last byte (i.e. frame size minus 1), then 'message' (arbitrary data,

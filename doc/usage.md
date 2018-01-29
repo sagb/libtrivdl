@@ -100,8 +100,8 @@ cd examples/echo/msp430 && make upload
 ../posix/echo
 ```
 
-For debug, enable -DDEBUG in makefiles
-and additional callback functions in MCU code: mcudebug1() and mcudebug2()
+For debug, enable `-DDEBUG` in makefiles
+and additional callback functions in MCU code: `mcudebug1` and `mcudebug2`
 ([prototypes](../src/libtrivdl.h), [example](../examples/stream/msp430/stream.c)).
 POSIX version will output debug information to stderr, 
 while TI Launchpad will blink green (RX) and red (TX) LED.

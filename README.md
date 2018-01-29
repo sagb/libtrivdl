@@ -16,7 +16,8 @@ and [API](doc/usage.md) features callbacks for asynchronous machine.
 
 ([3](examples/)) Examples of synchronous and asynchronous data exchange 
 (see [usage](doc/usage.md) for details)  
-
+   
+   
 Feel free to [contact](https://webchat.freenode.net/?channels=%23libtrivdl) me in IRC.  
    
    

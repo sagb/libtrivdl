@@ -56,5 +56,6 @@ Operation
 
 Transmitter and receiver start and stop sending/listening frames asynchronously at arbitrary time.
 
-No acknowledgements, retransmissions or error correction are provided. However, receiver is able to recover from invalid frames and continue to attempt frame synchronization.
+No acknowledgements, retransmissions or error correction are provided. However,
+the receiver is able to recover from invalid frames and continue to attempt frame synchronization.
 

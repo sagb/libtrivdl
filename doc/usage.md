@@ -11,12 +11,12 @@ API
 ---
 
 You would want to make yourself familiar with shortcuts 
-and other definitions in `libtrivdl.h`,
+and other definitions in [`libtrivdl.h`](../src/libtrivdl.h),
 because they are used extensively throughout the code.
 
 The 'line' (`struct t_line`) represents a single peer-to-peer connection.
 It contains two 'frames', one is RX buffer, another is TX buffer.
-Along with frames, `line` has file descriptor associated with serial port in POSIX code,
+Along with frames, `line` has a file descriptor associated with serial port in POSIX code,
 flags for signalling asynchronous machine (`lflags`) and `void` pointer to
 arbitrary user data associated with the connection.
 
@@ -30,8 +30,8 @@ and transmission synchronization flags resembling modem's CTS/RTX.
 In the core sits 'asynchronous machine', which transmits and receives
 next byte of frame buffer when physical layer becomes ready.
 In between these events, when both TX and RX are busy, it calls `cb_idle()`.
-Each character are handled by `incoming_char()` and `outgoing_char()`.
-When they finish receiving/transmitting the frame, `cb_frame_tx_done()`
+Each character is handled by `incoming_char()` or `outgoing_char()`.
+When they finish receiving/transmitting the entire frame, `cb_frame_tx_done()`
 and `cb_frame_rx_done()` are called.
 The main synchronization mean for all these functions is READY flag
 in `struct t_frame`, see [`libtrivdl.h`](../src/libtrivdl.h) for its description.
@@ -131,6 +131,5 @@ The state machine is described is [stream.h](../examples/stream/stream.h).
 This procedure runs multiple times using different frame sizes.
 At the end statistics table is printed.
 
-You can also try to run echo master vs stream slave and vice versa.
-
+You can also try to run `echo` master vs `stream` slave and vice versa.
 

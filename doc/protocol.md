@@ -44,10 +44,11 @@ but see caveat above), and ends with a single byte of checksum.
    +-----------+-------------+------------+-------------   -+-----------+
    |     0     |      1      |      2     |       3     ...     lastndx |
 
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ protected 
-                                                            by CRC
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                   protected 
+                                                   by CRC
 ```
-CRC is a simple direct 8-bit sum of all bytes excluding first and last one.
+CRC is unsigned 8-bit sum of all bytes excluding first and last one.
 
 
 Operation

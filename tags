@@ -1,0 +1,201 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CC	examples/echo/msp430/Makefile	/^CC              = msp430-gcc$/;"	m
+CC	examples/stream/msp430/Makefile	/^CC              = msp430-gcc$/;"	m
+CFLAGS	examples/echo/msp430/Makefile	/^CFLAGS          = -mmcu=${CPU} -O2 -Wall$/;"	m
+CFLAGS	examples/stream/msp430/Makefile	/^CFLAGS          = -mmcu=${CPU} -O2 -Wall$/;"	m
+CPU	examples/echo/msp430/Makefile	/^CPU             = msp430g2553$/;"	m
+CPU	examples/stream/msp430/Makefile	/^CPU             = msp430g2553$/;"	m
+DATA	src/libtrivdl.h	79;"	d
+DEBUG1	src/libtrivdl.h	174;"	d
+DEBUG1	src/libtrivdl.h	186;"	d
+DEBUG2	src/libtrivdl.h	175;"	d
+DEBUG2	src/libtrivdl.h	187;"	d
+DEFINE_FRAME_VIA_LINE	src/libtrivdl.h	105;"	d
+DEPS	examples/stream/posix/Makefile	/^DEPS = ..\/..\/serial.o ..\/..\/..\/src\/libtrivdl-libc.o$/;"	m
+DRIVER	examples/echo/msp430/Makefile	/^DRIVER			= rf2500$/;"	m
+DRIVER	examples/stream/msp430/Makefile	/^DRIVER			= rf2500$/;"	m
+EXIT_A_M	src/libtrivdl.h	70;"	d
+FRAMEDELIMITER	src/libtrivdl.h	53;"	d
+FRBADFMT	src/libtrivdl.h	74;"	d
+FRBADSUM	src/libtrivdl.h	75;"	d
+FRLAST	src/libtrivdl.h	86;"	d
+FROK	src/libtrivdl.h	73;"	d
+FRTOOLONG	src/libtrivdl.h	76;"	d
+FSIZE	examples/stream/stream.h	41;"	d
+GREEN	examples/echo/msp430/echo.c	16;"	d	file:
+GREEN	examples/stream/msp430/stream.c	17;"	d	file:
+HFDFL	src/libtrivdl.h	67;"	d
+LASTNDX	src/libtrivdl.h	57;"	d
+LED_DIR	examples/echo/msp430/echo.c	17;"	d	file:
+LED_DIR	examples/stream/msp430/stream.c	18;"	d	file:
+LED_OUT	examples/echo/msp430/echo.c	18;"	d	file:
+LED_OUT	examples/stream/msp430/stream.c	19;"	d	file:
+LFD	src/libtrivdl.h	89;"	d
+LFLAGS	src/libtrivdl.h	90;"	d
+LIBTRIVDL_H	src/libtrivdl.h	10;"	d
+LRDATA	src/libtrivdl.h	100;"	d
+LRFLAGS	src/libtrivdl.h	96;"	d
+LRFR	src/libtrivdl.h	98;"	d
+LRLAST	src/libtrivdl.h	94;"	d
+LRMSG	src/libtrivdl.h	92;"	d
+LRNEXT	src/libtrivdl.h	102;"	d
+LUSERDATA	src/libtrivdl.h	91;"	d
+LWDATA	src/libtrivdl.h	101;"	d
+LWFLAGS	src/libtrivdl.h	97;"	d
+LWFR	src/libtrivdl.h	99;"	d
+LWLAST	src/libtrivdl.h	95;"	d
+LWMSG	src/libtrivdl.h	93;"	d
+LWNEXT	src/libtrivdl.h	103;"	d
+MAXCHARS	examples/stream/stream.h	40;"	d
+MAXFRAMESIZE	src/libtrivdl.h	48;"	d
+MCU	examples/echo/msp430/echo.c	9;"	d	file:
+MCU	examples/stream/msp430/stream.c	9;"	d	file:
+MESSAGE	src/libtrivdl.h	58;"	d
+MINFRAMESIZE	src/libtrivdl.h	50;"	d
+NAME	examples/echo/msp430/Makefile	/^NAME            = echo$/;"	m
+NAME	examples/stream/msp430/Makefile	/^NAME            = stream$/;"	m
+OBJECTS	examples/echo/msp430/Makefile	/^OBJECTS         = echo.o ..\/..\/..\/src\/libtrivdl-msp430.o$/;"	m
+OBJECTS	examples/stream/msp430/Makefile	/^OBJECTS         = stream.o ..\/..\/..\/src\/libtrivdl-msp430.o$/;"	m
+OP_ECHOREP	examples/echo/msp430/echo.c	26;"	d	file:
+OP_ECHORQ	examples/echo/msp430/echo.c	25;"	d	file:
+OP_STREAM_DATA	examples/stream/stream.h	47;"	d
+OP_STREAM_START	examples/stream/stream.h	44;"	d
+OP_STREAM_STATS	examples/stream/stream.h	46;"	d
+OP_STREAM_STOP	examples/stream/stream.h	45;"	d
+OVERHEAD	src/libtrivdl.h	49;"	d
+PROBES	examples/stream/posix/stream.c	159;"	d	file:
+PRX	examples/stream/stream.h	36;"	d
+PRXERR	examples/stream/stream.h	38;"	d
+PTX	examples/stream/stream.h	35;"	d
+PTXERR	examples/stream/stream.h	37;"	d
+RDATA	src/libtrivdl.h	81;"	d
+READY	src/libtrivdl.h	61;"	d
+RED	examples/echo/msp430/echo.c	15;"	d	file:
+RED	examples/stream/msp430/stream.c	16;"	d	file:
+RFLAGS	src/libtrivdl.h	84;"	d
+RFRLAST	src/libtrivdl.h	88;"	d
+RNEXT	src/libtrivdl.h	83;"	d
+RXD	examples/echo/msp430/echo.c	22;"	d	file:
+RXD	examples/stream/msp430/stream.c	23;"	d	file:
+RXERRORS	examples/stream/stream.h	34;"	d
+RXTOTAL	examples/stream/stream.h	32;"	d
+SENT	examples/echo/posix/echo.c	16;"	d	file:
+SERIAL_H	examples/serial.h	2;"	d
+SIGNATURE	src/libtrivdl.h	56;"	d
+STATE	examples/stream/stream.h	39;"	d
+STREAM_H	examples/stream/stream.h	5;"	d
+ST_async_data	examples/stream/stream.h	52;"	d
+ST_silence	examples/stream/stream.h	50;"	d
+ST_start	examples/stream/stream.h	51;"	d
+ST_stats	examples/stream/stream.h	55;"	d
+ST_stop	examples/stream/stream.h	53;"	d
+ST_stopped	examples/stream/stream.h	54;"	d
+TXD	examples/echo/msp430/echo.c	21;"	d	file:
+TXD	examples/stream/msp430/stream.c	22;"	d	file:
+TXERRORS	examples/stream/stream.h	33;"	d
+TXTOTAL	examples/stream/stream.h	31;"	d
+UD	examples/stream/stream.h	30;"	d
+WDATA	src/libtrivdl.h	80;"	d
+WFLAGS	src/libtrivdl.h	85;"	d
+WFRLAST	src/libtrivdl.h	87;"	d
+WNEXT	src/libtrivdl.h	82;"	d
+X_DONE	src/libtrivdl.h	156;"	d
+X_DONE	src/libtrivdl.h	160;"	d
+add_hdr_and_checksum	src/libtrivdl.c	/^void add_hdr_and_checksum (t_frame* fr)$/;"	f
+async_machine	src/libtrivdl.c	/^int async_machine (t_line* line)$/;"	f
+brc	examples/stream/stream.h	/^    int brc, btc, rbrc, rbtc;$/;"	m	struct:__anon5
+btc	examples/stream/stream.h	/^    int brc, btc, rbrc, rbtc;$/;"	m	struct:__anon5
+build_frame	src/libtrivdl.c	/^t_frame* build_frame (t_frame* fr, uc* src, uc size)$/;"	f
+c	examples/stream/stream.h	/^    uc c[10];$/;"	m	union:__anon3
+cb_frame_rx_done	examples/echo/msp430/echo.c	/^void cb_frame_rx_done (uc status)$/;"	f
+cb_frame_rx_done	examples/echo/posix/echo.c	/^void cb_frame_rx_done (uc status, t_line* line)$/;"	f
+cb_frame_rx_done	examples/stream/msp430/stream.c	/^void cb_frame_rx_done (uc status)$/;"	f
+cb_frame_rx_done	examples/stream/posix/stream.c	/^void cb_frame_rx_done (uc status, t_line* line)$/;"	f
+cb_frame_tx_done	examples/echo/posix/echo.c	/^void cb_frame_tx_done (uc status, t_line* line)$/;"	f
+cb_frame_tx_done	examples/stream/msp430/stream.c	/^void cb_frame_tx_done (uc status)$/;"	f
+cb_frame_tx_done	examples/stream/posix/stream.c	/^void cb_frame_tx_done (uc status, t_line* line)$/;"	f
+cb_idle	examples/echo/posix/echo.c	/^float cb_idle (t_line* line)$/;"	f
+cb_idle	examples/stream/posix/stream.c	/^float cb_idle (t_line* line)$/;"	f
+compute_checksum	src/libtrivdl.c	/^uc compute_checksum (t_frame* fr)$/;"	f
+create_and_send_data	examples/stream/msp430/stream.c	/^void create_and_send_data ()$/;"	f
+create_and_send_data	examples/stream/posix/stream.c	/^void create_and_send_data (t_line* line)$/;"	f
+create_and_send_stats	examples/stream/msp430/stream.c	/^void create_and_send_stats ()$/;"	f
+data	src/libtrivdl.h	/^    uc data[MAXFRAMESIZE];$/;"	m	struct:__anon1
+data_session	examples/stream/posix/stream.c	/^t_baud data_session (t_line* line, int maxchars, uc framesize)$/;"	f
+err	src/libtrivdl.h	32;"	d
+err	src/libtrivdl.h	35;"	d
+fd	src/libtrivdl.h	/^    int fd;$/;"	m	struct:__anon2
+flags	src/libtrivdl.h	/^    uc flags;$/;"	m	struct:__anon1
+framesize	examples/stream/stream.h	/^    uc framesize;$/;"	m	struct:__anon4
+fsize	examples/stream/stream.h	/^    uc fsize;$/;"	m	struct:__anon5
+i	examples/stream/stream.h	/^    uint16_t i[5];$/;"	m	union:__anon3
+incoming_char	src/libtrivdl.c	/^void incoming_char (uc c)$/;"	f
+init_frame	src/libtrivdl.c	/^void init_frame (t_frame* fr)$/;"	f
+init_line	src/libtrivdl.c	/^int init_line (t_line* line, char* portname, void* userdata)$/;"	f
+isr_USCI0RX	examples/echo/msp430/echo.c	/^static void __attribute__((__interrupt__(USCIAB0RX_VECTOR))) isr_USCI0RX (void)$/;"	f	file:
+isr_USCI0RX	examples/stream/msp430/stream.c	/^static void __attribute__((__interrupt__(USCIAB0RX_VECTOR))) isr_USCI0RX (void)$/;"	f	file:
+isr_USCI0TX	examples/echo/msp430/echo.c	/^static void __attribute__((__interrupt__(USCIAB0TX_VECTOR))) isr_USCI0TX (void)$/;"	f	file:
+isr_USCI0TX	examples/stream/msp430/stream.c	/^static void __attribute__((__interrupt__(USCIAB0TX_VECTOR))) isr_USCI0TX (void)$/;"	f	file:
+lflags	src/libtrivdl.h	/^    uc lflags;$/;"	m	struct:__anon2
+line	examples/echo/msp430/echo.c	/^t_line* line;$/;"	v
+line	examples/stream/msp430/stream.c	/^t_line* line;$/;"	v
+line	src/libtrivdl.h	/^t_line *line; \/\/ allocate it!$/;"	v
+linei	examples/echo/msp430/echo.c	/^t_line volatile linei;$/;"	v
+linei	examples/stream/msp430/stream.c	/^t_line volatile linei;$/;"	v
+main	examples/echo/msp430/echo.c	/^int main (void) {$/;"	f
+main	examples/echo/posix/echo.c	/^int main()$/;"	f
+main	examples/stream/msp430/stream.c	/^int main (void) {$/;"	f
+main	examples/stream/posix/stream.c	/^int main()$/;"	f
+maxchars	examples/stream/stream.h	/^    int maxchars;$/;"	m	struct:__anon4
+mcudebug1	examples/echo/msp430/echo.c	/^void mcudebug1() {$/;"	f
+mcudebug1	examples/stream/msp430/stream.c	/^void mcudebug1() {$/;"	f
+mcudebug2	examples/echo/msp430/echo.c	/^void mcudebug2() {$/;"	f
+mcudebug2	examples/stream/msp430/stream.c	/^void mcudebug2() {$/;"	f
+mmcu	src/Makefile	/^	msp430-gcc -mmcu=msp430g2553 -O2 -Wall ${CFLAGS} -DMCU -c -o libtrivdl-msp430.o libtrivdl.c$/;"	m
+msg	src/libtrivdl.h	30;"	d
+msg	src/libtrivdl.h	34;"	d
+next	src/libtrivdl.h	/^    uc next;$/;"	m	struct:__anon1
+outgoing_char	src/libtrivdl.c	/^uc outgoing_char ()$/;"	f
+peer_rx	examples/stream/stream.h	/^    uint16_t peer_tx, peer_rx, peer_txerr, peer_rxerr;$/;"	m	struct:__anon4
+peer_rxerr	examples/stream/stream.h	/^    uint16_t peer_tx, peer_rx, peer_txerr, peer_rxerr;$/;"	m	struct:__anon4
+peer_tx	examples/stream/stream.h	/^    uint16_t peer_tx, peer_rx, peer_txerr, peer_rxerr;$/;"	m	struct:__anon4
+peer_txerr	examples/stream/stream.h	/^    uint16_t peer_tx, peer_rx, peer_txerr, peer_rxerr;$/;"	m	struct:__anon4
+rbrc	examples/stream/stream.h	/^    int brc, btc, rbrc, rbtc;$/;"	m	struct:__anon5
+rbtc	examples/stream/stream.h	/^    int brc, btc, rbrc, rbtc;$/;"	m	struct:__anon5
+request_remote_stop	examples/stream/posix/stream.c	/^void request_remote_stop (t_line* line)$/;"	f
+request_remote_stream	examples/stream/posix/stream.c	/^void request_remote_stream (t_line* line)$/;"	f
+res	src/libtrivdl.c	/^char res[5*MAXFRAMESIZE+1];$/;"	v
+rfr	src/libtrivdl.h	/^    t_frame rfr;$/;"	m	struct:__anon2
+rx	examples/stream/stream.h	/^    uint16_t tx, rx, txerr, rxerr;$/;"	m	struct:__anon4
+rxerr	examples/stream/stream.h	/^    uint16_t tx, rx, txerr, rxerr;$/;"	m	struct:__anon4
+sent	examples/echo/posix/echo.c	/^    char sent;$/;"	m	struct:__anon6	file:
+set_interface_attribs	examples/serial.c	/^int set_interface_attribs(int fd, int speed)$/;"	f
+set_mincount	examples/serial.c	/^void set_mincount(int fd, int mcount)$/;"	f
+setup_ports	examples/echo/msp430/echo.c	/^void setup_ports()$/;"	f
+setup_ports	examples/stream/msp430/stream.c	/^void setup_ports()$/;"	f
+smclk_1mhz	examples/echo/msp430/echo.c	/^void smclk_1mhz()$/;"	f
+smclk_1mhz	examples/stream/msp430/stream.c	/^void smclk_1mhz()$/;"	f
+state	examples/stream/stream.h	/^    uc state;$/;"	m	struct:__anon4
+strfr	src/libtrivdl.c	/^char* strfr (t_frame* fr)$/;"	f
+strfrret	src/libtrivdl.c	/^char* strfrret (uc status){$/;"	f
+t_baud	examples/stream/stream.h	/^} t_baud;$/;"	t	typeref:struct:__anon5
+t_ctr	examples/stream/stream.h	/^} t_ctr;$/;"	t	typeref:union:__anon3
+t_frame	src/libtrivdl.h	/^} t_frame;$/;"	t	typeref:struct:__anon1
+t_line	src/libtrivdl.h	/^} t_line;$/;"	t	typeref:struct:__anon2
+t_userdata	examples/echo/posix/echo.c	/^} t_userdata;$/;"	t	typeref:struct:__anon6	file:
+t_userdata	examples/stream/stream.h	/^} t_userdata;$/;"	t	typeref:struct:__anon4
+tx	examples/stream/stream.h	/^    uint16_t tx, rx, txerr, rxerr;$/;"	m	struct:__anon4
+txerr	examples/stream/stream.h	/^    uint16_t tx, rx, txerr, rxerr;$/;"	m	struct:__anon4
+uart_9600_smclk_1mhz	examples/echo/msp430/echo.c	/^void uart_9600_smclk_1mhz()$/;"	f
+uart_9600_smclk_1mhz	examples/stream/msp430/stream.c	/^void uart_9600_smclk_1mhz()$/;"	f
+uc	src/libtrivdl.h	/^typedef unsigned char uc;$/;"	t
+userdata	src/libtrivdl.h	/^    void* userdata;$/;"	m	struct:__anon2
+wfr	src/libtrivdl.h	/^    t_frame wfr;$/;"	m	struct:__anon2
+wrn	src/libtrivdl.h	31;"	d
+wrn	src/libtrivdl.h	37;"	d
+wrn	src/libtrivdl.h	39;"	d

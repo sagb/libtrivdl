@@ -20,8 +20,8 @@ However, it has not:
 * acknowledgment of frame reception/acceptance, retransmission, error correction
 
 
-Data structure
---------------
+Frame structure
+---------------
 ```
        0xBA data data ... 0xBA data data 0xBABA data ... 0xBA data ...
                           ^^^^           ^^^^^^
@@ -38,7 +38,7 @@ in RAM, i.e. `struct t_frame`, does not).
 
 Each frame begins with a delimiter, then a single byte, representing the index 
 of last byte (i.e. frame size minus 1), then 'message' (arbitrary data,
-but see caveat above), and ends with single byte of checksum.
+but see caveat above), and ends with a single byte of checksum.
 ```
    |   0xBA    |  lastndx    | message[0] | message [1] ... |     CRC   |
    +-----------+-------------+------------+-------------   -+-----------+
@@ -55,5 +55,5 @@ Operation
 
 Transmitter and receiver start and stop sending/listening frames asynchronously at arbitrary time.
 
-No acknowledgements, retransmissions or error correction are provided. However, receiver must be able to recover from invalid frames and continue to attempt frame synchronization.
+No acknowledgements, retransmissions or error correction are provided. However, receiver is able to recover from invalid frames and continue to attempt frame synchronization.
 

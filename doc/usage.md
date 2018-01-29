@@ -16,16 +16,16 @@ because they are used extensively throughout the code.
 
 The 'line' (`struct t_line`) represents a single peer-to-peer connection.
 It contains two 'frames', one is RX buffer, another is TX buffer.
-Along with frames, `line` has file descriptor associated with serial port in POSIX,
+Along with frames, `line` has file descriptor associated with serial port in POSIX code,
 flags for signalling asynchronous machine (`lflags`) and `void` pointer to
 arbitrary user data associated with the connection.
 
 Each frame (`struct t_frame`) represents a single 
-datalink frame (see [protocol](protocol.md)), serving simultaneously
+datalink frame (see [protocol](protocol.md)), also serving
 as RX or TX buffer.
 It has the data (all bytes from 0xBA to the end), 
 index of next RX/TX byte 
-and transmission synchronization flags like modem's CTS/RTX.
+and transmission synchronization flags resembling modem's CTS/RTX.
 
 In the core sits 'asynchronous machine', which transmits and receives
 next byte of frame buffer when physical layer becomes ready.
@@ -59,9 +59,20 @@ Users must define three callback functions in their code: `cb_frame_tx_done`,
 their prototypes.
 Also, asyncronous machine itself is fully implemented for POSIX
 but expected to be implemented by user as interrupt service routines (ISR)
-for their MCU, see [stream](examples/stream/msp430/stream.c) example 
+for their MCU, see [stream](../examples/stream/msp430/stream.c) example 
 for MSP430 implementation.
 
+Along with core procedures, the following helper functions are provided:
+
+* `init_frame`
+* `init_line`
+* `compute_checksum`
+* `add_hdr_and_checksum`
+* `build_frame`
+* `strfr` (return frame as a string; only in POSIX version)
+* `strfrret` (return callbacks' `status` argument as a string; only in POSIX version)
+
+See [`libtrivdl.h`](../src/libtrivdl.h) for details.
 
 Build
 -----
@@ -91,7 +102,7 @@ cd examples/echo/msp430 && make upload
 
 For debug, enable -DDEBUG in makefiles
 and additional callback functions in MCU code: mcudebug1() and mcudebug2()
-([prototypes](../src/libtrivdl.h), [example](examples/stream/msp430/stream.c)).
+([prototypes](../src/libtrivdl.h), [example](../examples/stream/msp430/stream.c)).
 POSIX version will output debug information to stderr, 
 while TI Launchpad will blink green (RX) and red (TX) LED.
 
@@ -102,8 +113,7 @@ Examples
 ## echo
 
 The single synchronous ping-pong.
-See how compact the [code](../examples/echo/posix/echo.c) can be
-with libtrivdl.
+See how compact the [code](../examples/echo/posix/echo.c) using libtrivdl can be.
 
 ## stream
 

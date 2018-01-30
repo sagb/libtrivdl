@@ -27,7 +27,7 @@ Frame structure
                           ^^^^           ^^^^^^
                frame delimiter           inline 0xBA
 ```
-Protocol operates on 8-bit characters (bytes), represented by RS232 UART.
+Protocol operates on 8-bit characters (bytes), typically represented by RS232 UART.
 Bytes are grouped in frames, delimited by the 0xBA byte.
 If the 0xBA byte occurs in the data to be sent,
 the two byte sequence 0xBABA is sent instead.

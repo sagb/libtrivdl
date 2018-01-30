@@ -25,14 +25,14 @@ datalink frame (see [protocol](protocol.md)), also serving
 as RX or TX buffer.
 It has the data (all bytes from 0xBA to the end), 
 index of next RX/TX byte 
-and transmission synchronization flags resembling modem's CTS/RTX.
+and transmission synchronization flags resembling modem's RTS/CTS.
 
 In the core sits 'asynchronous machine', which transmits and receives
 next byte of frame buffer when physical layer becomes ready.
 In between these events, when both TX and RX are busy, it calls `cb_idle()`.
 Each character is handled by `incoming_char()` or `outgoing_char()`.
-When they finish receiving/transmitting the entire frame, `cb_frame_tx_done()`
-and `cb_frame_rx_done()` are called.
+When they finish receiving/transmitting the entire frame, they call
+`cb_frame_tx_done()` or `cb_frame_rx_done()`.
 The main synchronization mean for all these functions is READY flag
 in `struct t_frame`, see [`libtrivdl.h`](../src/libtrivdl.h) for its description.
 
@@ -57,7 +57,7 @@ in `struct t_frame`, see [`libtrivdl.h`](../src/libtrivdl.h) for its description
 Users must define three callback functions in their code: `cb_frame_tx_done`, 
 `cb_frame_rx_done` and `cb_idle`. See [`libtrivdl.h`](../src/libtrivdl.h) for 
 their prototypes.
-Also, asyncronous machine itself is fully implemented for POSIX
+Also, asyncronous machine itself is fully implemented for POSIX side
 but expected to be implemented by user as interrupt service routines (ISR)
 for their MCU, see [stream](../examples/stream/msp430/stream.c) example 
 for MSP430 implementation.
@@ -85,7 +85,7 @@ mspgcc -DMCU ...
 or:
 #define MCU
 ```
-while POSIX version must be compiled without `MCU` defined.
+while POSIX version must be built without `MCU` defined.
 
 Provided makefiles build the library and examples for both Linux PC and 
 [TI MSP-EXP430G2 Launchpad](http://www.ti.com/tool/MSP-EXP430G2)
@@ -104,7 +104,7 @@ For debug, enable `-DDEBUG` in makefiles
 and additional callback functions in MCU code: `mcudebug1` and `mcudebug2`
 ([prototypes](../src/libtrivdl.h), [example](../examples/stream/msp430/stream.c)).
 POSIX version will output debug information to stderr, 
-while TI Launchpad will blink green (RX) and red (TX) LED.
+while 430 Launchpad will blink green (RX) and red (TX) LED.
 
 
 Examples

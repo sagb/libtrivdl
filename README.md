@@ -2,10 +2,9 @@
 
 # Trivial Data Link Layer
 
-This is library for simple data link, first OSI layer above physical.
-It's designed for synchronous and asynchronous serial communication between PC
-and microcontroller hardware UART (tested with MSP430).
-Data is transmitted in [sized frames with CRC](doc/protocol.md),
+This is library for simple data link for synchronous and asynchronous 
+serial communication between PC and microcontroller hardware UART (tested with MSP430).
+It transmits data in [sized frames with CRC](doc/protocol.md),
 and [API](doc/usage.md) features callbacks for asynchronous machine.
 
 ## Documentation

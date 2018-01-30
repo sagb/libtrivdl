@@ -160,10 +160,10 @@ void cb_frame_tx_done (uc status, t_line* line);
 #define X_DONE(a,b)   a(b, line)
 #endif
 #ifndef MCU
-// called by async machine when there is nothing to send or receive.
-// must return time before its next call
-// may be relatively large (1 sec or more), because rx and tx
-// are handled immediately (see callbacks above).
+// Called by async machine when there is nothing to send or receive.
+// must return time in seconds before its next call.
+// This time may be relatively large (1 sec or more), because 
+// it doesn't introduce any delay in rx/tx.
 float cb_idle (t_line* line);
 #endif
 

@@ -2,9 +2,9 @@
 
 # Trivial Data Link Layer
 
-This is library for simple data link for synchronous and asynchronous 
-serial communication between PCs and/or microcontroller hardware UARTs 
-(tested with MSP430).
+This is library for simple data link (node-to-node data transfer) 
+over synchronous and asynchronous serial lines between PCs 
+and/or microcontroller hardware UARTs (tested with MSP430).
 It transmits data in [sized frames with CRC](doc/protocol.md),
 and [API](doc/usage.md) features callbacks for asynchronous machine.
 

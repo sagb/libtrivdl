@@ -34,7 +34,7 @@ float cb_idle (t_line* line)
         err ("no reply within timeout\n");
         LFLAGS |= EXIT_A_M; // stop async machine
     } else {
-        build_frame (LWFR, "\x10pay\xBAload", 9); // \x10=ping
+        build_frame (LWFR, "\x10payload", 9); // \x10=ping
         //wrn("sending: %s\n", strfr(LWFR));
         LWFLAGS |= READY; // async machine starts transmitting
         SENT = 1;

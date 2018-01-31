@@ -147,6 +147,7 @@ void incoming_char (t_line* line, uc c)
                 // transfer frame ownership to user code
                 rfr->flags |= READY;
                 X_DONE(cb_frame_rx_done, FROK);
+                RNEXT = SIGNATURE;
                 return;
             }
         } else {

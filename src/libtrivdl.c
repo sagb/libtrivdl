@@ -91,6 +91,7 @@ void incoming_char (t_line* line, uc c)
             //wrn("perhaps new frame\n");
             return;
         } else {
+            RNEXT++;
             wrn("garbage: 0x%hhx\n", c);
             return;
         }
@@ -270,9 +271,9 @@ int async_machine (t_line* line)
                 }
                 if (WNEXT > WFRLAST) {
                     // frame transmitted
-                    //WNEXT = SIGNATURE; // let sender rewind
                     WFLAGS &= ~READY;
                     X_DONE(cb_frame_tx_done, FROK);
+                    WNEXT = SIGNATURE; // unify with MCU code
                 }
             }
 

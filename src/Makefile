@@ -1,5 +1,5 @@
 
-#CFLAGS += -DDEBUG -g
+CFLAGS += -DDEBUG -g
 
 all: libtrivdl-libc.o libtrivdl-msp430.o
 

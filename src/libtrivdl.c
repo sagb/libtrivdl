@@ -84,6 +84,8 @@ void incoming_char (t_line* line, uc c)
     //
     t_frame* rfr = &(line->rfr); // TODO: get rid of this
     uc checksum;
+    wrn("RNEXT %hhu c 0x%hhx\n", RNEXT, c);
+
     if (RNEXT == SIGNATURE) {
         if (c == FRAMEDELIMITER) {
             RDATA[RNEXT] = c;
@@ -91,13 +93,13 @@ void incoming_char (t_line* line, uc c)
             //wrn("perhaps new frame\n");
             return;
         } else {
-            RNEXT++;
             wrn("garbage: 0x%hhx\n", c);
             return;
         }
+        return;
     }
 
-    else if (RNEXT == LASTNDX) {
+    if (RNEXT == LASTNDX) {
        if (c == FRAMEDELIMITER) {
             // TODO!
             wrn("bug: frame size == frame delimiter, can't cope with this, assuming garbage\n");
@@ -117,73 +119,75 @@ void incoming_char (t_line* line, uc c)
                 return;
             }
         }
-    } // checksum position
+       return;
+    } // lastndx
 
-    else if (RNEXT == MESSAGE) {
+    if (RNEXT == MESSAGE) {
         RDATA[RNEXT] = c;
         RNEXT++;
         return;
     } // message[0]
 
-    else if (RNEXT > MESSAGE) {
-        if (RNEXT >= MAXFRAMESIZE) {
-            err("incoming frame buffer overrun\n");
+    // all below for RNEXT > MESSAGE
+
+    if (RNEXT >= MAXFRAMESIZE) {
+        err("incoming frame buffer overrun\n");
+        rfr->flags |= READY;
+        X_DONE(cb_frame_rx_done, FRTOOLONG);
+        RNEXT = SIGNATURE;
+        return;
+    }
+    
+    if (c == FRAMEDELIMITER) {
+        // BA!
+        if (rfr->flags & HFDFL) {
+            //wrn("skipping extra 0x%hhX\n", FRAMEDELIMITER);
+            rfr->flags &= ~HFDFL;
+            return;
+        } else {
+            RDATA[RNEXT] = c;
+            RNEXT++;
+            rfr->flags |= HFDFL;
+            return;
+        }
+        return;
+    }
+           
+    if (rfr->flags & HFDFL) {
+        wrn("single 0x%hhX in the middle of frame, resetting frame\n", FRAMEDELIMITER);
+        rfr->flags |= READY;
+        X_DONE(cb_frame_rx_done, FRBADFMT);
+        RDATA[SIGNATURE] = FRAMEDELIMITER;
+        RDATA[SIGNATURE+1] = c;
+        RNEXT = SIGNATURE+2;
+        RFLAGS &= ~HFDFL;
+        return;
+    }
+
+    RDATA[RNEXT] = c;
+    RNEXT++;
+
+    if (RNEXT == (RFRLAST + 1)) {
+        // last char, the checksum
+        checksum = compute_checksum (rfr);
+        if (checksum != c) {
+            err("checksum in frame (0x%hhx) doesn't match calculated (0x%hhx), frame skipped\n", c, checksum);
             rfr->flags |= READY;
-            X_DONE(cb_frame_rx_done, FRTOOLONG);
+            X_DONE(cb_frame_rx_done, FRBADSUM);
+            RNEXT = SIGNATURE;
+            return;
+        } else {
+            // transfer frame ownership to user code
+            rfr->flags |= READY;
+            X_DONE(cb_frame_rx_done, FROK);
             RNEXT = SIGNATURE;
             return;
         }
-        else if (RNEXT == RFRLAST) {
-            // last char, the checksum
-            RDATA[RNEXT] = c;
-            RNEXT++;
-            checksum = compute_checksum (rfr);
-            if (checksum != c) {
-                err("checksum in frame (0x%hhx) doesn't match calculated (0x%hhx), frame skipped\n", c, checksum);
-                rfr->flags |= READY;
-                X_DONE(cb_frame_rx_done, FRBADSUM);
-                RNEXT = SIGNATURE;
-                return;
-            } else {
-                // transfer frame ownership to user code
-                rfr->flags |= READY;
-                X_DONE(cb_frame_rx_done, FROK);
-                RNEXT = SIGNATURE;
-                return;
-            }
-        } else {
-            // msg[1+], not last
-            if (c == FRAMEDELIMITER) {
-                // BA!
-                if (rfr->flags & HFDFL) {
-                    //wrn("skipping extra 0x%hhX\n", FRAMEDELIMITER);
-                    rfr->flags &= ~HFDFL;
-                    return;
-                } else {
-                    RDATA[RNEXT] = c;
-                    RNEXT++;
-                    rfr->flags |= HFDFL;
-                    return;
-                }
-            } else {
-                if (rfr->flags & HFDFL) {
-                    wrn("single 0x%hhX in the middle of frame, resetting frame\n", FRAMEDELIMITER);
-                    rfr->flags |= READY;
-                    X_DONE(cb_frame_rx_done, FRBADFMT);
-                    RDATA[SIGNATURE] = FRAMEDELIMITER;
-                    RDATA[SIGNATURE+1] = c;
-                    RNEXT = SIGNATURE+2;
-                    RFLAGS &= ~HFDFL;
-                    return;
-                } else {
-                    // plain msg[1+]
-                    RDATA[RNEXT] = c;
-                    RNEXT++;
-                    return;
-                }
-            }
-        } // msg[1+]
-    } // msg[1+] or checksum
+        return;
+    }
+
+    // plain msg[1+], not last, redundant
+    return;
 
 } // incoming_char
 
@@ -262,7 +266,7 @@ int async_machine (t_line* line)
             if ((WFLAGS & READY) && (WNEXT <= WFRLAST) && FD_ISSET (LFD, &wfds)) {
                 //wrn("select: tx pos %d (fr ptr %p, 0x%hhx)\n", WNEXT, wfr, WDATA[WNEXT]);
                 c = outgoing_char (line);  // generally, WDATA[WNEXT++]
-                //wrn("write 0x%hhx\n", c);
+                wrn("write WNEXT %hhu c 0x%hhx\n", WNEXT, c);
                 wrlen = write (LFD, &c, 1);
                 tcdrain (LFD);   // delay for output
                 if (wrlen != 1) {

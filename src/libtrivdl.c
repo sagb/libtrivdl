@@ -84,7 +84,7 @@ void incoming_char (t_line* line, uc c)
     //
     t_frame* rfr = &(line->rfr); // TODO: get rid of this
     uc checksum;
-    wrn("RNEXT %hhu c 0x%hhx\n", RNEXT, c);
+    //wrn("RNEXT %hhu c 0x%hhx\n", RNEXT, c);
 
     if (RNEXT == SIGNATURE) {
         if (c == FRAMEDELIMITER) {
@@ -266,7 +266,7 @@ int async_machine (t_line* line)
             if ((WFLAGS & READY) && (WNEXT <= WFRLAST) && FD_ISSET (LFD, &wfds)) {
                 //wrn("select: tx pos %d (fr ptr %p, 0x%hhx)\n", WNEXT, wfr, WDATA[WNEXT]);
                 c = outgoing_char (line);  // generally, WDATA[WNEXT++]
-                wrn("write WNEXT %hhu c 0x%hhx\n", WNEXT, c);
+                //wrn("write WNEXT %hhu c 0x%hhx\n", WNEXT, c);
                 wrlen = write (LFD, &c, 1);
                 tcdrain (LFD);   // delay for output
                 if (wrlen != 1) {
